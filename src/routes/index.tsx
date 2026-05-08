@@ -49,7 +49,7 @@ function Index() {
       <Feedbacks />
       <Contact />
       <Footer />
-      <WhatsAppFAB />
+      <AccessibilityFAB />
     </main>
   );
 }
