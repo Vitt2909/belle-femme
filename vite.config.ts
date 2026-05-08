@@ -4,6 +4,7 @@ import viteReact from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { cloudflare } from "@cloudflare/vite-plugin";
+import { nitro } from "nitro/vite";
 
 export default defineConfig(({ command }) => ({
   optimizeDeps: {
@@ -11,9 +12,10 @@ export default defineConfig(({ command }) => ({
   },
   plugins: [
     tanstackStart({ server: { entry: "server" } }),
+    ...(process.env.VERCEL ? [nitro()] : []),
     viteReact(),
     tailwindcss(),
     tsconfigPaths(),
-    ...(command === "build" ? [cloudflare()] : []),
+    ...(command === "build" && !process.env.VERCEL ? [cloudflare()] : []),
   ],
 }));
