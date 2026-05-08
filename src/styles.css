@@ -143,3 +143,84 @@
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
 }
+
+/* ===== Access Platform — Accessibility modes ===== */
+html.ap-font-step-1 { font-size: 106.25%; }
+html.ap-font-step-2 { font-size: 112.5%; }
+html.ap-font-step-3 { font-size: 125%; }
+html.ap-font-step--1 { font-size: 93.75%; }
+html.ap-font-step--2 { font-size: 87.5%; }
+
+html.ap-high-contrast,
+html.ap-high-contrast body {
+  background: #000 !important;
+  color: #ffeb00 !important;
+}
+html.ap-high-contrast *:not(svg):not(path) {
+  background-color: transparent !important;
+  color: #ffeb00 !important;
+  border-color: #ffeb00 !important;
+}
+html.ap-high-contrast a,
+html.ap-high-contrast button { color: #fff !important; text-decoration: underline !important; }
+html.ap-high-contrast img { filter: grayscale(50%) contrast(1.1); }
+
+html.ap-grayscale { filter: grayscale(100%); }
+
+html.ap-highlight-links a,
+html.ap-highlight-links button {
+  outline: 2px solid #ffeb00 !important;
+  outline-offset: 2px;
+  text-decoration: underline !important;
+  background-color: rgba(91, 42, 115, 0.08) !important;
+}
+
+html.ap-readable-font,
+html.ap-readable-font * {
+  font-family: Arial, Verdana, sans-serif !important;
+  letter-spacing: 0.01em;
+}
+
+html.ap-spacing,
+html.ap-spacing * {
+  letter-spacing: 0.12em !important;
+  word-spacing: 0.16em !important;
+  line-height: 1.9 !important;
+}
+
+html.ap-pause-animations,
+html.ap-pause-animations *,
+html.ap-pause-animations *::before,
+html.ap-pause-animations *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+
+html.ap-big-cursor,
+html.ap-big-cursor * {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'><polygon points='4,2 4,38 14,28 20,44 26,42 20,26 34,26' fill='%235B2A73' stroke='%23ffeb00' stroke-width='2'/></svg>") 2 2, auto !important;
+}
+
+html.ap-reading-mode main {
+  max-width: 760px !important;
+  margin: 0 auto !important;
+  background: #fffdf5 !important;
+  color: #1a1a1a !important;
+}
+html.ap-reading-mode main * {
+  background: transparent !important;
+  color: #1a1a1a !important;
+  box-shadow: none !important;
+  border-color: #ddd !important;
+}
+html.ap-reading-mode header,
+html.ap-reading-mode footer,
+html.ap-reading-mode video,
+html.ap-reading-mode iframe { display: none !important; }
+
+@keyframes apPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(91,42,115,0.45); }
+  50% { box-shadow: 0 0 0 14px rgba(91,42,115,0); }
+}
+.ap-pulse { animation: apPulse 2.4s ease-out infinite; }
