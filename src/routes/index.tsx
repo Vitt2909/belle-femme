@@ -7,7 +7,7 @@ import { Locations } from "@/components/site/Locations";
 import { Feedbacks } from "@/components/site/Feedbacks";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
-import { WhatsAppFAB } from "@/components/site/WhatsAppFAB";
+import { AccessibilityFAB } from "@/components/site/AccessibilityFAB";
 
 export const Route = createFileRoute("/")({
   head: () => ({
